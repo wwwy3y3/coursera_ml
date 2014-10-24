@@ -8,7 +8,12 @@ class Pla(object):
 	def __init__(self, filename):
 		self.datas= np.loadtxt(filename)
 		# add threshold in datas, w0=0, x0=1
-		
+		ones= np.ones((self.datas.shape[0], 1))
+		self.datas= np.hstack((
+			ones,
+			self.datas
+			))
+
 		# init first line, by adding the first dot
 		# self.w= 
 
@@ -34,4 +39,4 @@ class Pla(object):
 
 if __name__ == '__main__':
 	pla= Pla('hw1_15_train.dat')
-	print pla.datas.size
+	print pla.datas
